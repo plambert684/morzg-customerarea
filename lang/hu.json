@@ -1,0 +1,64 @@
+{
+  "overviewPage": {
+    "title": "Overview",
+    "pre-title": "Page",
+    "stats": {
+      "services": {
+        "title": "Services"
+      },
+      "orders": {
+        "title": "Orders"
+      },
+      "tickets": {
+        "title": "Tickets"
+      },
+      "invoices": {
+        "title": "Invoices"
+      }
+    },
+    "active-services": {
+      "title": "Active services",
+      "tables": {
+        "service": "Service",
+        "order_date": "Order date",
+        "due_date": "Due date"
+      }
+    }
+  },
+  "userPage": {
+    "title": "Account settings",
+    "pre-title": "Manage your account settings.",
+    "preferences": {
+      "title": "Preferences",
+      "language-title": "Language",
+      "button": "Apply"
+    },
+    "menu": {
+      "preferences" : "Preferences"
+    }
+  },
+  "profil-menu": {
+    "feedback": "Feedback",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "menu": {
+    "overview": "Áttekintés",
+    "services": "Services",
+    "billing": "Billing",
+    "support": "Support",
+    "organization": "Your organization",
+    "sub-services": {
+      "your-services": "Your services",
+      "order-service": "Order a service"
+    },
+    "sub-billing": {
+      "your-invoices": "Your invoices",
+      "add-funds": "Add funds"
+    },
+    "sub-support": {
+      "your-tickets": "Your tickets",
+      "open-ticket": "Open new ticket"
+    }
+  }
+}

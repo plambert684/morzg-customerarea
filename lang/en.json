@@ -1,0 +1,177 @@
+{
+  "header": {
+    "notifications": {
+      "title": "Notifications"
+    }
+  },
+  "overviewPage": {
+    "title": "Overview",
+    "pre-title": "Page",
+    "eco-designed-title": "Eco-designed customer area",
+    "eco-designed-desc": "We are very worried about the global warming that we are experiencing, the damage caused is largely irreversible and we absolutely want to participate in reducing it. This is why our customer area is eco-designed at the backend and images level.",
+    "eco-designed-button": "Learn more",
+    "stats": {
+      "services": {
+        "title": "Services"
+      },
+      "orders": {
+        "title": "Orders"
+      },
+      "tickets": {
+        "title": "Tickets"
+      },
+      "invoices": {
+        "title": "Invoices"
+      }
+    },
+    "active-services": {
+      "title": "Active services",
+      "tables": {
+        "service": "Service",
+        "order_date": "Order date",
+        "due_date": "Due date"
+      }
+    }
+  },
+  "servicesPage": {
+    "title": "Services",
+    "pre-title": "Your services",
+    "order-button": "Order",
+    "menu": {
+      "all-services": "All services"
+    },
+    "all-services": {
+      "title": "Your services",
+      "table": {
+        "name": {
+          "service": "service",
+          "order-date": "Order date",
+          "due-date": "Due date",
+          "status": "Status"
+        },
+        "content": {
+          "management-button": "Manage"
+        }
+      }
+    },
+    "status": {
+      "active": "Active",
+      "suspended": "Suspended",
+      "ended": "Ended",
+      "canceled": "Canceled",
+      "fraud": "Fraud"
+    },
+    "alert": {
+      "error": {
+        "category-not-found": "The requested category does not exist or has been deleted."
+      }
+    }
+  },
+  "invoicesPage": {
+    "title": "Invoices",
+    "pre-title": "Your invoices",
+    "menu": {
+      "all": "All your invoices",
+      "paid": "Paid",
+      "unpaid": "Unpaid",
+      "canceled": "Canceled",
+      "refunded": "Refunded",
+      "fraud": "Fraud"
+    },
+    "all-invoices": {
+      "title": "Your invoices",
+      "table": {
+        "number": "Number",
+        "order-date": "Order date",
+        "ttc-price": "All taxes included price",
+        "status": "Statut",
+        "management-button": "Manage"
+      }
+    },
+    "status": {
+      "paid": "Paid",
+      "unpaid": "Unpaid",
+      "canceled": "Canceled",
+      "refunded": "Refunded",
+      "fraud": "Fraud"
+    }
+  },
+  "alert": {
+    "error": {
+      "filter-not-found": "The requested filter does not exist or has been deleted."
+    }
+  },
+  "invoicePage": {
+    "title": "Your invoice",
+    "print-button": "Print",
+    "invoice": {
+      "title": "Invoice",
+      "table": {
+        "product": "Product",
+        "amount": "Amount",
+        "without-taxe-price": "Price without tax",
+        "vat-value": "Value of VAT",
+        "vat-price": "VAT Price"
+      },
+      "vat-message": "VAT not applicable, article 293 B of the Code Général des Impôts in France."
+    },
+    "status": {
+      "paid": "Paid",
+      "unpaid": "Unpaid",
+      "canceled": "Canceled",
+      "refunded": "Refunded",
+      "fraud": "Fraud"
+    }
+  },
+  "userPage": {
+    "title": "Account settings",
+    "pre-title": "Manage your account settings.",
+    "preferences": {
+      "title": "Preferences",
+      "language-title": "Language",
+      "button": "Apply"
+    },
+    "personal-informations": {
+      "title": "Personal informations",
+      "button": "Apply",
+      "fields": {
+        "first-name": "First name",
+        "last-name": "Last name",
+        "email": "Email address"
+      },
+      "update-message-confirmation": "Your personal informations has been update.",
+      "update-fields-error": "You must provide all fields."
+    },
+    "menu": {
+      "preferences" : "Preferences",
+      "billing-informations" : "Billing informations",
+      "personal-informations" : "Personal informations",
+      "payment-methods" : "Payement Method"
+    }
+  },
+  "profil-menu": {
+    "feedback": "Feedback",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "menu": {
+    "overview": "Overview",
+    "services": "Services",
+    "billing": "Billing",
+    "support": "Support",
+    "organization": "Your organization",
+    "search": "Search",
+    "sub-services": {
+      "your-services": "Your services",
+      "order-service": "Order a service"
+    },
+    "sub-billing": {
+      "your-invoices": "Your invoices",
+      "add-funds": "Add funds"
+    },
+    "sub-support": {
+      "your-tickets": "Your tickets",
+      "open-ticket": "Open new ticket"
+    }
+  }
+}

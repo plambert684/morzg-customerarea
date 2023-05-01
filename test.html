@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple de code JavaScript</title>
+</head>
+<body>
+<button onclick="activerBloc()">Cliquez ici pour activer le bloc HTML</button>
+<button onclick="cacherBloc()">Cliquez ici pour cacher le bloc HTML</button>
+
+<div id="monBloc" class="page page-center">
+    <p>test</p>
+</div>
+
+<script>
+    function activerBloc() {
+        var bloc = document.getElementById("monBloc");
+        bloc.style.display = "block";
+    }
+
+    function cacherBloc() {
+        var bloc = document.getElementById("monBloc");
+        bloc.style.display = "none";
+    }
+</script>
+</body>
+</html>

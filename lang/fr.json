@@ -1,0 +1,205 @@
+{
+    "header": {
+      "notifications": {
+        "title": "Notifications"
+      }
+    },
+   "overviewPage": {
+     "title": "Vue d'ensemble",
+     "pre-title": "Page",
+     "eco-designed-title": "Espace client éco-conçu",
+     "eco-designed-desc": "Nous sommes très inquiet du réchauffement climatique que nous connaissons, les dégats provoqués sont en grandes parties irréversibles et nous souhaitons impérativement participer à la réduction de ce dernier. C'est pour cela que notre espace client est éco-conçu au niveau du backend et des images.",
+     "eco-designed-button": "En apprendre plus",
+     "stats": {
+       "services": {
+         "title": "Services"
+       },
+       "orders": {
+         "title": "Commandes"
+       },
+       "tickets": {
+         "title": "Tickets"
+       },
+       "invoices": {
+         "title": "Factures"
+       }
+     },
+     "active-services": {
+       "title": "Services actif",
+       "tables": {
+         "service": "Service",
+         "order_date": "Date de commande",
+         "due_date": "Echéance"
+       }
+     }
+   },
+   "servicesPage": {
+     "title": "Services",
+     "pre-title": "Vos services",
+     "order-button": "Commander",
+     "menu": {
+       "all-services": "Tout vos services"
+     },
+     "all-services": {
+       "title": "Vos services",
+       "table": {
+         "name": {
+           "service": "service",
+           "order-date": "Date de commande",
+           "due-date": "Due d'échéance",
+           "status": "Statut"
+         },
+         "content": {
+           "management-button": "Gérer"
+         }
+       }
+     },
+     "status": {
+       "active": "Actif",
+       "suspended": "Suspendu",
+       "ended": "Terminé",
+       "canceled": "Annulé",
+       "fraud": "Fraudé"
+     },
+     "alert": {
+       "error": {
+         "category-not-found": "La catégorie demandée n'existe pas ou a été supprimée."
+       }
+     }
+   },
+  "invoicesPage": {
+    "title": "Factures",
+    "pre-title": "Vos factures",
+    "menu": {
+      "all": "Toutes vos factures",
+      "paid": "Payée",
+      "unpaid": "Impayée",
+      "canceled": "Annulée",
+      "refunded": "Remboursée",
+      "fraud": "Fraudée"
+    },
+    "all-invoices": {
+      "title": "Vos factures",
+      "table": {
+        "number": "Numéro",
+        "order-date": "Date de commande",
+        "ttc-price": "Prix TTC",
+        "status": "Statut",
+        "management-button": "Gérer"
+      }
+    },
+    "status": {
+      "paid": "Payée",
+      "unpaid": "Impayée",
+      "canceled": "Annulée",
+      "refunded": "Remboursée",
+      "fraud": "Fraudée"
+    },
+    "alert": {
+      "error": {
+        "filter-not-found": "Le filtre demandé n'existe pas ou a été supprimé."
+      }
+    }
+  },
+  "invoicePage": {
+    "title": "Votre facture",
+    "print-button": "Imprimer",
+    "invoice": {
+      "title": "Facture",
+      "table": {
+        "product": "Produit",
+        "amount": "Montant",
+        "without-taxe-price": "Prix HT",
+        "vat-value": "Valeur de la TVA",
+        "vat-price": "Prix TTC"
+      },
+      "vat-message": "TVA non applicable, article 293 B du Code Général des Impôts en France."
+    },
+    "status": {
+      "paid": "Payée",
+      "unpaid": "Impayée",
+      "canceled": "Annulée",
+      "refunded": "Remboursée",
+      "fraud": "Fraudée"
+    }
+  },
+  "ticketsPage": {
+    "title": "Tickets",
+    "pre-title": "Vos tickets",
+    "new-ticket-button": "Ouvrir une nouvelle demande",
+    "table": {
+      "title": "Vos tickets",
+      "subject": "Sujet",
+      "department": "Département",
+      "status": "Statut",
+      "management-button": "Voir",
+      "department-title": {
+        "billing": "Facturation"
+      },
+      "status-badge": {
+        "open": "Ouvert",
+        "closed": "Fermé",
+        "waiting-customer-reply": "Répondu",
+        "waiting-staff-reply": "Attente de réponse"
+      }
+    },
+    "menu": {
+      "all": "Toutes vos demandes",
+      "open": "Ouvert",
+      "closed": "Fermé",
+      "waiting-customer-reply": "Répondu",
+      "waiting-staff-reply": "Attente de réponse"
+    }
+  },
+  "userPage": {
+     "title": "Paramètre du compte",
+     "pre-title": "Gérer les paramètres de votre compte.",
+     "preferences": {
+       "title": "Préférences",
+       "language-title": "Langage",
+       "button": "Appliquer"
+     },
+     "personal-informations": {
+       "title": "Informations personnelles",
+       "button": "Appliquer",
+       "fields": {
+         "first-name": "Prénom",
+         "last-name": "Nom de famille",
+         "email": "Adresse email"
+       },
+       "update-message-confirmation": "Vos informations personnelles ont été mises à jours avec succès.",
+       "update-fields-error": "Vous devez renseigner tout les champs."
+     },
+     "menu": {
+       "preferences" : "Préférences",
+       "billing-informations" : "Informations de facturation",
+       "personal-informations" : "Informations personnelles",
+       "payment-methods" : "Moyens de paiement"
+     }
+   },
+   "profil-menu": {
+     "feedback": "Retour",
+     "settings": "Paramètre",
+     "logout": "Déconnexion"
+   },
+   "menu": {
+       "overview": "Vue d'ensemble",
+       "services": "Services",
+       "billing": "Facturation",
+       "support": "Support",
+       "organization": "Votre organisation",
+       "search": "Rechercher",
+       "sub-services": {
+         "your-services": "Vos services",
+         "order-service": "Commander un service"
+       },
+       "sub-billing": {
+         "your-invoices": "Vos factures",
+         "add-funds": "Ajouter des fonds"
+       },
+       "sub-support": {
+         "your-tickets": "Vos tickets",
+         "open-ticket": "Ouvrir un nouveau ticket"
+       }
+   }
+}
