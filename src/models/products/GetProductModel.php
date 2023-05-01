@@ -23,7 +23,6 @@ class ProductRepository {
                 $Product->name = $getProduct['name'];
                 $Product->category_id = $getProduct['category_id'];
                 $Product->description = $getProduct['description'];
-                $Product->order = $getProduct['order'];
             }
         } else {
             $Product = null;

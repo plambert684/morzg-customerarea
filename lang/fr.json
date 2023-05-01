@@ -11,8 +11,8 @@
      "eco-designed-desc": "Nous sommes très inquiet du réchauffement climatique que nous connaissons, les dégats provoqués sont en grandes parties irréversibles et nous souhaitons impérativement participer à la réduction de ce dernier. C'est pour cela que notre espace client est éco-conçu au niveau du backend et des images.",
      "eco-designed-button": "En apprendre plus",
      "stats": {
-       "services": {
-         "title": "Services"
+       "proxys": {
+         "title": "Proxys"
        },
        "orders": {
          "title": "Commandes"
@@ -33,18 +33,18 @@
        }
      }
    },
-   "servicesPage": {
-     "title": "Services",
-     "pre-title": "Vos services",
-     "order-button": "Commander",
+   "proxysPage": {
+     "title": "Proxys",
+     "pre-title": "Vos proxys",
+     "add-button": "Ajouter",
      "menu": {
-       "all-services": "Tout vos services"
+       "all-proxys": "Tout vos proxys"
      },
-     "all-services": {
-       "title": "Vos services",
+     "all-proxys": {
+       "title": "Vos proxys",
        "table": {
          "name": {
-           "service": "service",
+           "proxy": "proxy",
            "order-date": "Date de commande",
            "due-date": "Due d'échéance",
            "status": "Statut"
@@ -184,14 +184,14 @@
    },
    "menu": {
        "overview": "Vue d'ensemble",
-       "services": "Services",
+       "proxys": "Proxys",
        "billing": "Facturation",
        "support": "Support",
        "organization": "Votre organisation",
        "search": "Rechercher",
        "sub-services": {
-         "your-services": "Vos services",
-         "order-service": "Commander un service"
+         "your-proxys": "Vos proxys",
+         "add-proxy": "Ajouter un proxy"
        },
        "sub-billing": {
          "your-invoices": "Vos factures",

@@ -11,8 +11,8 @@
     "eco-designed-desc": "We are very worried about the global warming that we are experiencing, the damage caused is largely irreversible and we absolutely want to participate in reducing it. This is why our customer area is eco-designed at the backend and images level.",
     "eco-designed-button": "Learn more",
     "stats": {
-      "services": {
-        "title": "Services"
+      "proxys": {
+        "title": "Proxys"
       },
       "orders": {
         "title": "Orders"
@@ -34,17 +34,17 @@
     }
   },
   "servicesPage": {
-    "title": "Services",
-    "pre-title": "Your services",
-    "order-button": "Order",
+    "title": "Proxys",
+    "pre-title": "Your proxys",
+    "add-button": "Add",
     "menu": {
-      "all-services": "All services"
+      "all-proxys": "All proxys"
     },
-    "all-services": {
-      "title": "Your services",
+    "all-proxys": {
+      "title": "Your proxys",
       "table": {
         "name": {
-          "service": "service",
+          "proxy": "proxy",
           "order-date": "Order date",
           "due-date": "Due date",
           "status": "Status"
@@ -156,14 +156,14 @@
   },
   "menu": {
     "overview": "Overview",
-    "services": "Services",
+    "proxys": "Proxys",
     "billing": "Billing",
     "support": "Support",
     "organization": "Your organization",
     "search": "Search",
     "sub-services": {
-      "your-services": "Your services",
-      "order-service": "Order a service"
+      "your-proxys": "Your proxys",
+      "add-proxy": "Order a proxy"
     },
     "sub-billing": {
       "your-invoices": "Your invoices",

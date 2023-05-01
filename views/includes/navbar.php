@@ -142,26 +142,26 @@
                     <li class="nav-item dropdown <?php  if(isset($_GET['page'])) { if($_GET['page']== "Services") { echo('active');} }?>">
                         <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-server" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                   <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"></path>
-                                   <path d="M12 12l8 -4.5"></path>
-                                   <path d="M12 12l0 9"></path>
-                                   <path d="M12 12l-8 -4.5"></path>
+                                   <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"></path>
+                                   <path d="M3 12m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"></path>
+                                   <path d="M7 8l0 .01"></path>
+                                   <path d="M7 16l0 .01"></path>
                                 </svg>
                             </span>
                             <span class="nav-link-title">
-                                <?=$langData["menu"]["services"]?>
+                                <?=$langData["menu"]["proxys"]?>
                             </span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="dropdown-menu-columns">
                                 <div class="dropdown-menu-column">
                                     <a class="dropdown-item <?php  if(isset($_GET['page'])) { if($_GET['page']== "Services") { echo('active');} }?>" href="index.php?page=Services">
-                                        <?=$langData["menu"]["sub-services"]["your-services"]?>
+                                        <?=$langData["menu"]["sub-services"]["your-proxys"]?>
                                     </a>
                                     <a class="dropdown-item" href="./empty.html">
-                                        <?=$langData["menu"]["sub-services"]["order-service"]?>
+                                        <?=$langData["menu"]["sub-services"]["add-proxy"]?>
                                     </a>
                                 </div>
                             </div>

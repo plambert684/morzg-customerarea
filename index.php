@@ -5,6 +5,7 @@
     require_once('src/controllers/authentification/LoginController.php');
     require_once('src/controllers/DashboardController.php');
     require_once('src/controllers/ServicesController.php');
+    require_once('src/controllers/services/ServiceController.php');
     require_once('src/controllers/billing/InvoicesController.php');
     require_once('src/controllers/billing/InvoiceController.php');
     require_once('src/controllers/tickets/TicketsController.php');
@@ -36,8 +37,12 @@
     } else {
         if (isset($_GET['page'])) {
             if($_GET['page'] == "Services") {
-                servicesPage();
-            } if($_GET['page'] == "Invoices") {
+                if(isset($_GET['id'])) {
+                    servicePage();
+                } else {
+                    servicesPage();
+                }
+            } if ($_GET['page'] == "Invoices") {
                 invoicesPage();
             } if($_GET['page'] == "Invoice") {
                 invoicePage();

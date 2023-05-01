@@ -17,17 +17,17 @@
                     <div class="col">
                         <?php if(isset($getCategory)) {?>
                             <div class="page-pretitle">
-                                <?=$langData["servicesPage"]["title"]?>
+                                <?=$langData["proxysPage"]["title"]?>
                             </div>
                             <h2 class="page-title">
                                 <?=$getCategory->name?>
                             </h2>
                         <?php } else {?>
                             <div class="page-pretitle">
-                                <?=$langData["servicesPage"]["pre-title"]?>
+                                <?=$langData["proxysPage"]["pre-title"]?>
                             </div>
                             <h2 class="page-title">
-                                <?=$langData["servicesPage"]["title"]?>
+                                <?=$langData["proxysPage"]["title"]?>
                             </h2>
                         <?php }?>
                     </div>
@@ -41,7 +41,7 @@
                                     <path d="M9 12l6 0"></path>
                                     <path d="M12 9l0 6"></path>
                                 </svg>
-                                <?=$langData["servicesPage"]["order-button"]?>
+                                <?=$langData["proxysPage"]["add-button"]?>
                             </a>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                     <path d="M3 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
                                     <path d="M3 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
                                 </svg>
-                                <?=$langData["servicesPage"]["menu"]["all-services"]?>
+                                <?=$langData["proxysPage"]["menu"]["all-proxys"]?>
                             </a>
                             <?php foreach ($getProductCategories as $getProductCategory) {?>
                                 <a href="index.php?page=Services&category=<?=$getProductCategory->id?>" class="dropdown-item <?php if(isset($_GET['category'])) { if($getProductCategory->id == $_GET['category']) { echo('active'); } }?>">
@@ -77,15 +77,15 @@
                     <div class="col-lg-9">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title"><?=$langData["servicesPage"]["all-services"]["title"]?></h3>
+                                <h3 class="card-title"><?=$langData["proxysPage"]["all-proxys"]["title"]?></h3>
                                 <div class="table-responsive">
                                     <table class="table table-vcenter">
                                         <thead>
                                         <tr>
-                                            <th><?=$langData["servicesPage"]["all-services"]["table"]["name"]["service"]?></th>
-                                            <th><?=$langData["servicesPage"]["all-services"]["table"]["name"]["order-date"]?></th>
-                                            <th><?=$langData["servicesPage"]["all-services"]["table"]["name"]["due-date"]?></th>
-                                            <th><?=$langData["servicesPage"]["all-services"]["table"]["name"]["status"]?></th>
+                                            <th><?=$langData["proxysPage"]["all-proxys"]["table"]["name"]["proxy"]?></th>
+                                            <th><?=$langData["proxysPage"]["all-proxys"]["table"]["name"]["order-date"]?></th>
+                                            <th><?=$langData["proxysPage"]["all-proxys"]["table"]["name"]["due-date"]?></th>
+                                            <th><?=$langData["proxysPage"]["all-proxys"]["table"]["name"]["status"]?></th>
                                             <th class="w-1"></th>
                                         </tr>
                                         </thead>
@@ -110,21 +110,21 @@
                                                                 <?php
 
                                                                     if($getService->status == 1) {
-                                                                        echo('<span class="badge bg-teal">' . $langData["servicesPage"]["status"]["active"] .'</span>');
+                                                                        echo('<span class="badge bg-teal">' . $langData["proxysPage"]["status"]["active"] .'</span>');
                                                                     } if($getService->status == 2) {
-                                                                        echo('<span class="badge bg-orange">' . $langData["servicesPage"]["status"]["suspended"] .'</span>');
+                                                                        echo('<span class="badge bg-orange">' . $langData["proxysPage"]["status"]["suspended"] .'</span>');
                                                                     } if($getService->status == 3) {
-                                                                        echo('<span class="badge bg-cyan">' . $langData["servicesPage"]["status"]["ended"] .'</span>');
+                                                                        echo('<span class="badge bg-cyan">' . $langData["proxysPage"]["status"]["ended"] .'</span>');
                                                                     } if($getService->status == 4) {
-                                                                        echo('<span class="badge bg-yellow">' . $langData["servicesPage"]["status"]["canceled"] .'</span>');
+                                                                        echo('<span class="badge bg-yellow">' . $langData["proxysPage"]["status"]["canceled"] .'</span>');
                                                                     } if($getService->status == 5) {
-                                                                        echo('<span class="badge bg-red">' . $langData["servicesPage"]["status"]["fraud"] .'</span>');
+                                                                        echo('<span class="badge bg-red">' . $langData["proxysPage"]["status"]["fraud"] .'</span>');
                                                                     }
 
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="#"><?=$langData["servicesPage"]["all-services"]["table"]["content"]["management-button"]?></a>
+                                                                <a href="index.php?page=Services&id=<?=$getService->id?>"><?=$langData["proxysPage"]["all-proxys"]["table"]["content"]["management-button"]?></a>
                                                             </td>
                                                         </tr>
                                                     <?php }?>
@@ -145,21 +145,21 @@
                                                         <?php
 
                                                             if($getService->status == 1) {
-                                                                echo('<span class="badge bg-teal">' . $langData["servicesPage"]["status"]["active"] .'</span>');
+                                                                echo('<span class="badge bg-teal">' . $langData["proxysPage"]["status"]["active"] .'</span>');
                                                             } if($getService->status == 2) {
-                                                                echo('<span class="badge bg-orange">' . $langData["servicesPage"]["status"]["suspended"] .'</span>');
+                                                                echo('<span class="badge bg-orange">' . $langData["proxysPage"]["status"]["suspended"] .'</span>');
                                                             } if($getService->status == 3) {
-                                                                echo('<span class="badge bg-cyan">' . $langData["servicesPage"]["status"]["ended"] .'</span>');
+                                                                echo('<span class="badge bg-cyan">' . $langData["proxysPage"]["status"]["ended"] .'</span>');
                                                             } if($getService->status == 4) {
-                                                                echo('<span class="badge bg-yellow">' . $langData["servicesPage"]["status"]["canceled"] .'</span>');
+                                                                echo('<span class="badge bg-yellow">' . $langData["proxysPage"]["status"]["canceled"] .'</span>');
                                                             } if($getService->status == 5) {
-                                                                echo('<span class="badge bg-red">' . $langData["servicesPage"]["status"]["fraud"] .'</span>');
+                                                                echo('<span class="badge bg-red">' . $langData["proxysPage"]["status"]["fraud"] .'</span>');
                                                             }
 
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <a href="#"><?=$langData["servicesPage"]["all-services"]["table"]["content"]["management-button"]?></a>
+                                                        <a href="index.php?page=Services&id=<?=$getService->id?>"><?=$langData["proxysPage"]["all-proxys"]["table"]["content"]["management-button"]?></a>
                                                     </td>
                                                 </tr>
                                             <?php }?>
