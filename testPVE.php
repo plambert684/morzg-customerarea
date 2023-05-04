@@ -16,6 +16,6 @@ $credentials = [
 // Then simply pass your credentials when creating the API client object.
 $proxmox = new Proxmox($credentials);
 
-$allNodes = $proxmox->get('/nodes/pve/qemu/106/status/current');
+$allNodes = $proxmox->get('/nodes/pve/qemu/100/status/current');
 
-print_r($allNodes);
+print_r($allNodes['data']['cpu']);

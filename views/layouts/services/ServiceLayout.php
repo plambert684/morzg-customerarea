@@ -19,6 +19,7 @@
     <link href="./dist/css/tabler-payments.min.css?1674944402" rel="stylesheet"/>
     <link href="./dist/css/tabler-vendors.min.css?1674944402" rel="stylesheet"/>
     <link href="./dist/css/demo.min.css?1674944402" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         @import url('https://rsms.me/inter/inter.css');
         :root {

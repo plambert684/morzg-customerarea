@@ -1,51 +1,77 @@
 <?php
 
-require_once('src/lib/Database.php');
-require_once('src/models/users/GetUserModel.php');
-require_once('src/models/services/GetServiceModel.php');
-require_once('src/models/services/settings/GetServiceSettingsModel.php');
-require_once('src/models/products/GetProductModel.php');
-require_once('src/models/productCategories/GetProductCategoryModel.php');
-
-use Clientarea\Lib\Database\DatabaseConnection;
-use Clientarea\Model\Users\Get\UserRepository;
-use Clientarea\Model\Services\Get\ServiceRepository;
-use Clientarea\Model\Services\Settings\Get\ServiceSettingsRepository;
-use Clientarea\Model\Products\Get\ProductRepository;
-use Clientarea\Model\ProductCategories\Get\ProductCategoryRepository;
-
-function servicePage() {
-
-    $User = new UserRepository();
-    $User->connection = new DatabaseConnection();
-
-    $Service = new ServiceRepository();
-    $Service->connection = new DatabaseConnection();
-
-    $Product = new ProductRepository();
-    $Product->connection = new DatabaseConnection();
-
-    $ServiceSettings = new ServiceSettingsRepository();
-    $ServiceSettings->connection = new DatabaseConnection();
-
-    $ProductCategory = new ProductCategoryRepository();
-    $ProductCategory->connection = new DatabaseConnection();
-
-    $getUser = $User->getUser($_SESSION['user_id']);
-    $getServices = $Service->getAll($_SESSION['user_id']);
-    $getServiceSettings = $ServiceSettings->get($_GET['id']);
-    $getProductCategories = $ProductCategory->getAll($_SESSION['user_id']);
-
-    $lang = $getUser->lang;
-
-    $file = file_get_contents("lang/$lang.json");
-    $langData = json_decode($file, true);
-
-    #PROXMOX
+    require_once('src/lib/Database.php');
+    require_once('src/models/users/GetUserModel.php');
+    require_once('src/models/services/GetServiceModel.php');
+    require_once('src/models/services/settings/GetServiceSettingsModel.php');
+    require_once('src/models/products/GetProductModel.php');
+    require_once('src/models/productCategories/GetProductCategoryModel.php');
+    require_once('src/models/proxmoxServer/GetProxmoxServer.php');
     require_once('src/services/proxmox/connectProxmox.php');
 
-    $VMInfo = $proxmox->get('/nodes/pve/qemu/'.$getServiceSettings->vm_id.'/status/current');
+    use Clientarea\Lib\Database\DatabaseConnection;
+    use Clientarea\Model\Users\Get\UserRepository;
+    use Clientarea\Model\Services\Get\ServiceRepository;
+    use Clientarea\Model\Services\Settings\Get\ServiceSettingsRepository;
+    use Clientarea\Model\Products\Get\ProductRepository;
+    use Clientarea\Model\ProductCategories\Get\ProductCategoryRepository;
+    use Customerarea\Model\ProxmoxServer\Get\ProxmoxServerRepository;
+    use Clientarea\Service\Proxmox\Connect;
 
-    require('views/Services/ServiceView.php');
+    function servicePage() {
 
-}
+        $User = new UserRepository();
+        $User->connection = new DatabaseConnection();
+
+        $Service = new ServiceRepository();
+        $Service->connection = new DatabaseConnection();
+
+        $Product = new ProductRepository();
+        $Product->connection = new DatabaseConnection();
+
+        $ServiceSettings = new ServiceSettingsRepository();
+        $ServiceSettings->connection = new DatabaseConnection();
+
+        $ProductCategory = new ProductCategoryRepository();
+        $ProductCategory->connection = new DatabaseConnection();
+
+        $ProxmoxServer = new ProxmoxServerRepository();
+        $ProxmoxServer->connection = new DatabaseConnection();
+
+        $ProxmoxConnect = new Connect();
+
+        $getUser = $User->getUser($_SESSION['user_id']);
+        $getServices = $Service->getAll($_SESSION['user_id']);
+        $getServiceSettings = $ServiceSettings->get($_GET['id']);
+        $getProductCategories = $ProductCategory->getAll($_SESSION['user_id']);
+        $getProxmoxServer = $ProxmoxServer->get($getServiceSettings->proxmox_server_id);
+        $getProxmoxConnect = $ProxmoxConnect->send($getProxmoxServer->ip_address, $getProxmoxServer->user, $getProxmoxServer->password);
+
+        $lang = $getUser->lang;
+
+        $file = file_get_contents("lang/$lang.json");
+        $langData = json_decode($file, true);
+
+        #PROXMOX
+        require_once('src/services/proxmox/connectProxmox.php');
+
+        $VMInfo = $getProxmoxConnect->get('/nodes/virt1/qemu/'.$getServiceSettings->vm_id.'/status/current');
+
+        $NetworkIN = $VMInfo['data']['nics']['tap' . "$getServiceSettings->vm_id" .'i0']['netin'];
+        $sizeInBytes = $NetworkIN; // 2 gigabytes en bytes
+        $NetworkIN = $sizeInBytes / pow(1024, 3); // 1024 bytes = 1 kilobyte, 1024 kilobytes = 1 megabyte, 1024 megabytes = 1 gigabyte
+        $NetworkIN = round($NetworkIN, 2);
+
+        $NetworkOUT = $VMInfo['data']['nics']['tap' . "$getServiceSettings->vm_id" .'i0']['netout'];
+        $sizeInBytes = $NetworkOUT; // 2 gigabytes en bytes
+        $NetworkOUT = $sizeInBytes / pow(1024, 3); // 1024 bytes = 1 kilobyte, 1024 kilobytes = 1 megabyte, 1024 megabytes = 1 gigabyte
+        $NetworkOUT = round($NetworkOUT, 2);
+
+        #Mettre en forme le pourcentage de CPU utilisé
+        $CPUconsumption = $VMInfo['data']['cpu'];
+        $CPUconsumption = $CPUconsumption * 100;
+        $CPUconsumption = round($CPUconsumption, 2);
+
+        require('views/Services/ServiceView.php');
+
+    }

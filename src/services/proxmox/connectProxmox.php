@@ -1,17 +1,28 @@
 <?php
 
+    namespace Clientarea\Service\Proxmox;
+
     // Require the autoloader
-    require_once 'vendor/autoload.php';
+    require_once('vendor/autoload.php');
 
     // Use the library namespace
     use ProxmoxVE\Proxmox;
 
-    // Create your credentials array
-    $credentials = [
-        'hostname' => '192.168.2.43',  // Also can be an IP
-        'username' => 'root',
-        'password' => 'Paul123/',
-    ];
+    class Connect {
 
-    // Then simply pass your credentials when creating the API client object.
-    $proxmox = new Proxmox($credentials);
+        public function send($ipaddress, $user, $password) {
+
+            // Create your credentials array
+            $credentials = [
+                'hostname' => $ipaddress,  // Also can be an IP
+                'username' => $user,
+                'password' => $password,
+            ];
+
+            // Then simply pass your credentials when creating the API client object.
+            $proxmox = new Proxmox($credentials);
+
+            return $proxmox;
+        }
+
+    }
