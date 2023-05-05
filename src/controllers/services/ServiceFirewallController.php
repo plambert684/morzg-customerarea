@@ -56,6 +56,27 @@ function serviceFirewallPage() {
         $_SESSION['message'] = '<div class="alert alert-important alert-info alert-dismissible" role="alert"><div class="d-flex"><div><!-- Download SVG icon from http://tabler-icons.io/i/info-circle --><svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 8l.01 0" /><path d="M11 12l1 0l0 4l1 0" /></svg></div><div>Pour créer des règles vous devez ajouter au moins un groupe d\'IP/CIDR</div></div>';
     }
 
+    if(isset($_POST['submit'])) {
+        extract($_POST);
+        $direction = htmlspecialchars($direction);
+        $action = htmlspecialchars($action);
+        $service = htmlspecialchars($service);
+        $src = htmlspecialchars($src);
+        $dst = htmlspecialchars($dst);
+        $priority = htmlspecialchars($priority);
+        $firewallRuleData = [
+            'type' => $direction,
+            'action' => $action,
+            'macro' => $service,
+            'source' => '+' . $src,
+            'dest' => '+' . $dst,
+            'pos' => $priority,
+        ];
+
+        $getProxmoxConnect->create('/nodes/'. $getProxmoxServer->hostname .'/qemu/'.$getServiceSettings->vm_id.'/firewall/rules', $firewallRuleData);
+        header('Location: index.php?page=ServiceFirewall&id='. $_GET['id']);
+    }
+
     require('views/Services/ServiceFirewallView.php');
 
 }
