@@ -44,7 +44,7 @@
         #PROXMOX
         require_once('src/services/proxmox/connectProxmox.php');
 
-        $VMInfo = $getProxmoxConnect->get('/nodes/virt1/qemu/'.$getServiceSettings->vm_id.'/status/current');
+        $VMInfo = $getProxmoxConnect->get('/nodes/'. $getProxmoxServer->hostname .'/qemu/'.$getServiceSettings->vm_id.'/status/current');
 
         $NetworkIN = $VMInfo['data']['nics']['tap' . "$getServiceSettings->vm_id" .'i0']['netin'];
         $sizeInBytes = $NetworkIN; // 2 gigabytes en bytes

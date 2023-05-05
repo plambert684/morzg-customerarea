@@ -19,15 +19,10 @@
                         <!-- Page title actions -->
                         <div class="col-auto ms-auto d-print-none">
                             <div class="btn-list">
-                              <span class="d-none d-sm-inline">
-                                <a href="#" class="btn">
-                                  New view
-                                </a>
-                              </span>
                                 <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-                                    Create new report
+                                    Ajouter une règle
                                 </a>
                                 <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -41,10 +36,13 @@
             <!-- Page body -->
             <div class="page-body">
                 <div class="container-xl">
-                    <div class="row row-deck row-cards">
+                    <div class="col-12">
+                        <?php if(isset($_SESSION['message'])) { echo $_SESSION['message']; }?>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="dropdown-menu dropdown-menu-demo">
-                                <a href="index.php?page=Service&id=<?=$_GET['id']?>" class="dropdown-item active"><!-- Download SVG icon from http://tabler-icons.io/i/activity -->
+                                <a href="index.php?page=Service&id=<?=$_GET['id']?>" class="dropdown-item"><!-- Download SVG icon from http://tabler-icons.io/i/activity -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M15 9a6 6 0 0 1 4.891 9.476l2.816 2.817a1 1 0 0 1 -1.32 1.497l-.094 -.083l-2.817 -2.816a6 6 0 0 1 -9.472 -4.666l-.004 -.225l.004 -.225a6 6 0 0 1 5.996 -5.775zm0 3a1 1 0 0 0 -.993 .883l-.007 .117v1h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h1v1l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-1h1l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007h-1v-1l-.007 -.117a1 1 0 0 0 -.993 -.883z" stroke-width="0" fill="currentColor"></path>
@@ -84,7 +82,7 @@
                                     Certificat SSL
                                 </a>
                                 <h6 class="dropdown-header">Réseau</h6>
-                                <a href="index.php?page=ServiceFirewall&id=<?=$_GET['id']?>" class="dropdown-item"><!-- Download SVG icon from http://tabler-icons.io/i/edit -->
+                                <a href="index.php?page=ServiceFirewall&id=<?=$_GET['id']?>" class="dropdown-item active"><!-- Download SVG icon from http://tabler-icons.io/i/edit -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon icon-tabler-wall" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
@@ -101,87 +99,121 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-9">
-                            <div class="row row-cards">
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cpu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                           <path d="M5 5m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"></path>
-                                                           <path d="M8 10v-2h2m6 6v2h-2m-4 0h-2v-2m8 -4v-2h-2"></path>
-                                                           <path d="M3 10h2"></path>
-                                                           <path d="M3 14h2"></path>
-                                                           <path d="M10 3v2"></path>
-                                                           <path d="M14 3v2"></path>
-                                                           <path d="M21 10h-2"></path>
-                                                           <path d="M21 14h-2"></path>
-                                                           <path d="M14 21v-2"></path>
-                                                           <path d="M10 21v-2"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="font-weight-medium">
-                                                        <span id="cpu"><?=$CPUconsumption?></span>%
-                                                    </div>
-                                                    <div class="text-muted">
-                                                        Total : <?=$VMInfo['data']['cpus']?> vCores
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-header">
+                                    <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs">
+                                        <li class="nav-item">
+                                            <a href="#tabs-home-13" class="nav-link active" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M13 5h8"></path>
+                                                    <path d="M13 9h5"></path>
+                                                    <path d="M13 15h8"></path>
+                                                    <path d="M13 19h5"></path>
+                                                    <path d="M3 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                    <path d="M3 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                </svg>
+                                                Liste des règles</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#tabs-profile-13" class="nav-link" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M3 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                                                    <path d="M15 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                                                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                                                    <path d="M6 15v-1a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v1"></path>
+                                                    <path d="M12 9l0 3"></path>
+                                                </svg>
+                                                Groupe d'IP/CIDR</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active show" id="tabs-home-13">
+                                            <h4>Liste des règles</h4>
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="table-responsive">
+                                                        <table
+                                                                class="table table-vcenter card-table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Type</th>
+                                                                <th>Src</th>
+                                                                <th>Dst</th>
+                                                                <th>Action</th>
+                                                                <th>Service</th>
+                                                                <th class="w-1"></th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+
+                                                            $count = -1;
+                                                            foreach($VMFirewallRules['data'] as $element) {
+                                                                $count++;
+
+                                                                ?>
+                                                                <tr>
+                                                                    <td ><?=$VMFirewallRules['data'][$count]['pos']?></td>
+                                                                    <td class="text-muted" >
+                                                                        <?=$VMFirewallRules['data'][$count]['type']?>
+                                                                    </td>
+                                                                    <td ><?php if(isset($VMFirewallRules['data'][$count]['source'])) { echo $VMFirewallRules['data'][$count]['source']; } else { echo('-'); }?></td>
+                                                                    <td ><?php if(isset($VMFirewallRules['data'][$count]['dest'])) { echo $VMFirewallRules['data'][$count]['dest']; } else { echo('-'); }?></td>
+                                                                    <td class="text-muted" ><?=$VMFirewallRules['data'][$count]['action']?></td>
+                                                                    <td class="text-muted" >
+                                                                        <?=$VMFirewallRules['data'][$count]['macro']?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="#">Edit</a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php }?>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                           <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
-                                                           <path d="M7 11l5 5l5 -5"></path>
-                                                           <path d="M12 4l0 12"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="font-weight-medium">
-                                                        <span id="netin"><?=$NetworkIN?></span> GB
-                                                    </div>
-                                                    <div class="text-muted">
-                                                        Réseau entrant (total)
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span class="bg-yellow text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-upload" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                           <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
-                                                           <path d="M7 9l5 -5l5 5"></path>
-                                                           <path d="M12 4l0 12"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="font-weight-medium">
-                                                        <span id="netout"><?=$NetworkOUT?></span> GB
-                                                    </div>
-                                                    <div class="text-muted">
-                                                        Réseau sortant (total)
+                                        <div class="tab-pane" id="tabs-profile-13">
+                                            <h4>Groupe d'IP/CIDR</h4>
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="table-responsive">
+                                                        <table
+                                                                class="table table-vcenter card-table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Name</th>
+                                                                <th class="w-1"></th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+
+                                                            $count = -1;
+                                                            foreach($VMFirewallIPset['data'] as $element) {
+                                                                $count++;
+
+                                                                ?>
+                                                                <tr>
+                                                                    <td ><?=$count?></td>
+                                                                    <td class="text-muted" >
+                                                                        <?=$VMFirewallIPset['data'][$count]['name']?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="#">Edit</a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php }?>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
@@ -306,32 +338,6 @@
     <!-- Tabler Core -->
     <script src="./dist/js/tabler.min.js?1674944402" defer></script>
     <script src="./dist/js/demo.min.js?1674944402" defer></script>
-
-    <script>
-        const cpuUrl = "http://192.168.2.16/src/services/proxmox/ajax/vm/getCPU.php?vmid=<?=$getServiceSettings->vm_id?>";
-        const netoutUrl = "http://192.168.2.16/src/services/proxmox/ajax/vm/getNetout.php?vmid=<?=$getServiceSettings->vm_id?>";
-        const netinUrl = "http://192.168.2.16/src/services/proxmox/ajax/vm/getNetin.php?vmid=<?=$getServiceSettings->vm_id?>";
-
-        function fetchData(url) {
-            return fetch(url)
-                .then(response => response.text())
-                .then(data => parseFloat(data));
-        }
-
-        function updateData() {
-            Promise.all([
-                fetchData(cpuUrl),
-                fetchData(netoutUrl),
-                fetchData(netinUrl)
-            ]).then(([cpu, netout, netin]) => {
-                document.getElementById("cpu").innerHTML = (cpu * 100).toFixed(2);
-                document.getElementById("netout").innerHTML = netout;
-                document.getElementById("netin").innerHTML = netin;
-            });
-        }
-
-        setInterval(updateData, 2000);
-    </script>
 
 <?php $content = ob_get_clean(); ?>
 

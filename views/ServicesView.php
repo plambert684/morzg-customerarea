@@ -124,7 +124,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="index.php?page=Services&id=<?=$getService->id?>"><?=$langData["proxysPage"]["all-proxys"]["table"]["content"]["management-button"]?></a>
+                                                                <a href="index.php?page=Service&id=<?=$getService->id?>"><?=$langData["proxysPage"]["all-proxys"]["table"]["content"]["management-button"]?></a>
                                                             </td>
                                                         </tr>
                                                     <?php }?>
@@ -159,7 +159,7 @@
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <a href="index.php?page=Services&id=<?=$getService->id?>"><?=$langData["proxysPage"]["all-proxys"]["table"]["content"]["management-button"]?></a>
+                                                        <a href="index.php?page=Service&id=<?=$getService->id?>"><?=$langData["proxysPage"]["all-proxys"]["table"]["content"]["management-button"]?></a>
                                                     </td>
                                                 </tr>
                                             <?php }?>
