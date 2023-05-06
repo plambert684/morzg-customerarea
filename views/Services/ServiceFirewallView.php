@@ -104,7 +104,7 @@
                                 <div class="card-header">
                                     <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs">
                                         <li class="nav-item">
-                                            <a href="#tabs-home-13" class="nav-link active" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                            <a href="#rules-list" class="nav-link active" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                     <path d="M13 5h8"></path>
@@ -117,7 +117,7 @@
                                                 Liste des règles</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#tabs-profile-13" class="nav-link" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                            <a href="#ipcidr-group" class="nav-link" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                     <path d="M3 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
@@ -128,11 +128,21 @@
                                                 </svg>
                                                 Groupe d'IP/CIDR</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="#ip" class="nav-link" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M14 6a2 2 0 0 1 2 2v4a2 2 0 1 1 -4 0v-4a2 2 0 0 1 2 -2z"></path>
+                                                    <path d="M7 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"></path>
+                                                    <path d="M17 17v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2"></path>
+                                                </svg>
+                                                Liste des IPs</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="card-body">
                                     <div class="tab-content">
-                                        <div class="tab-pane active show" id="tabs-home-13">
+                                        <div class="tab-pane active show" id="rules-list">
                                             <h4>Liste des règles</h4>
                                             <div class="col-lg-12">
                                                 <div class="card">
@@ -180,7 +190,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="tabs-profile-13">
+                                        <div class="tab-pane" id="ipcidr-group">
                                             <h4>Groupe d'IP/CIDR</h4>
                                             <div class="col-lg-12">
                                                 <div class="card">
@@ -190,7 +200,7 @@
                                                             <thead>
                                                             <tr>
                                                                 <th>ID</th>
-                                                                <th>Name</th>
+                                                                <th>Nom</th>
                                                                 <th class="w-1"></th>
                                                             </tr>
                                                             </thead>
@@ -206,6 +216,48 @@
                                                                     <td ><?=$count?></td>
                                                                     <td class="text-muted" >
                                                                         <?=$VMFirewallIPset['data'][$count]['name']?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="#">Edit</a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php }?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="ip">
+                                            <h4>Groupe d'IP/CIDR</h4>
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="table-responsive">
+                                                        <table
+                                                                class="table table-vcenter card-table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Nom</th>
+                                                                <th>IP/CIDR</th>
+                                                                <th class="w-1"></th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+
+                                                            $count = -1;
+                                                            foreach($VMFirewallAliases['data'] as $element) {
+                                                                $count++;
+
+                                                                ?>
+                                                                <tr>
+                                                                    <td ><?=$count?></td>
+                                                                    <td class="text-muted" >
+                                                                        <?=$VMFirewallAliases['data'][$count]['name']?>
+                                                                    </td>
+                                                                    <td class="text-muted" >
+                                                                        <?=$VMFirewallAliases['data'][$count]['cidr']?>
                                                                     </td>
                                                                     <td>
                                                                         <a href="#">Edit</a>

@@ -308,9 +308,9 @@
     <script src="./dist/js/demo.min.js?1674944402" defer></script>
 
     <script>
-        const cpuUrl = "http://192.168.2.16/src/services/proxmox/ajax/vm/getCPU.php?vmid=<?=$getServiceSettings->vm_id?>";
-        const netoutUrl = "http://192.168.2.16/src/services/proxmox/ajax/vm/getNetout.php?vmid=<?=$getServiceSettings->vm_id?>";
-        const netinUrl = "http://192.168.2.16/src/services/proxmox/ajax/vm/getNetin.php?vmid=<?=$getServiceSettings->vm_id?>";
+        const cpuUrl = "http://192.168.2.17/src/services/proxmox/ajax/vm/getCPU.php?vmid=<?=$getServiceSettings->vm_id?>";
+        const netoutUrl = "http://192.168.2.17/src/services/proxmox/ajax/vm/getNetout.php?vmid=<?=$getServiceSettings->vm_id?>";
+        const netinUrl = "http://192.168.2.17/src/services/proxmox/ajax/vm/getNetin.php?vmid=<?=$getServiceSettings->vm_id?>";
 
         function fetchData(url) {
             return fetch(url)
