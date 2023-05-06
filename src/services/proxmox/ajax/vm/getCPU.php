@@ -3,6 +3,8 @@
     // Require the autoloader
     require_once '/var/www/clientarea/vendor/autoload.php';
 
+    use Clientarea\Service\Proxmox\Connect;
+
     // Use the library namespace
     use ProxmoxVE\Proxmox;
 

@@ -1,22 +1,32 @@
 <?php
 
-    // Require the autoloader
-    require_once '/var/www/clientarea/vendor/autoload.php';
+    require_once('src/models/services/GetServiceModel.php');
+    require_once('src/models/services/settings/GetServiceSettingsModel.php');
+    require_once('src/models/proxmoxServer/GetProxmoxServer.php');
+    require_once('src/services/proxmox/connectProxmox.php');
 
-    // Use the library namespace
-    use ProxmoxVE\Proxmox;
+    use Clientarea\Model\Services\Get\ServiceRepository;
+    use Clientarea\Model\Services\Settings\Get\ServiceSettingsRepository;
+    use Customerarea\Model\ProxmoxServer\Get\ProxmoxServerRepository;
+    use Clientarea\Service\Proxmox\Connect;
 
-    // Create your credentials array
-    $credentials = [
-        'hostname' => '178.63.66.159',  // Also can be an IP
-        'username' => 'root',
-        'password' => 'WfadWcqsumw4LP',
-    ];
+    $Service = new ServiceRepository();
+    $Service->connection = new DatabaseConnection();
 
-    // Then simply pass your credentials when creating the API client object.
-    $proxmox = new Proxmox($credentials);
+    $ServiceSettings = new ServiceSettingsRepository();
+    $ServiceSettings->connection = new DatabaseConnection();
 
-    $VMInfo = $proxmox->get('/nodes/virt1/qemu/'. $_GET["vmid"] .'/status/current');
+    $ProxmoxServer = new ProxmoxServerRepository();
+    $ProxmoxServer->connection = new DatabaseConnection();
+
+    $ProxmoxConnect = new Connect();
+
+    $getServices = $Service->getAll($_SESSION['user_id']);
+    $getServiceSettings = $ServiceSettings->get($_GET['id']);
+    $getProxmoxServer = $ProxmoxServer->get($getServiceSettings->proxmox_server_id);
+    $getProxmoxConnect = $ProxmoxConnect->send($getProxmoxServer->ip_address, $getProxmoxServer->user, $getProxmoxServer->password);
+
+    $VMInfo = $getProxmoxConnect->get('/nodes/virt1/qemu/'. $_GET["vmid"] .'/status/current');
 
     $NetworkIN = $VMInfo['data']['nics']['tap' . $_GET["vmid"] .'i0']['netin'];
     $sizeInBytes = $NetworkIN; // 2 gigabytes en bytes

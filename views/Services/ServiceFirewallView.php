@@ -19,12 +19,38 @@
                         <!-- Page title actions -->
                         <div class="col-auto ms-auto d-print-none">
                             <div class="btn-list">
-                                <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
+                                <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#create-rules">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
                                     Ajouter une règle
                                 </a>
-                                <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
+                                <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#create-rules" aria-label="Create new report">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-auto ms-auto d-print-none">
+                            <div class="btn-list">
+                                <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#create-ipcidrgroup">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                                    Ajouter un groupe
+                                </a>
+                                <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#create-ipcidrgroup" aria-label="Create new report">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-auto ms-auto d-print-none">
+                            <div class="btn-list">
+                                <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#add-ip">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                                    Ajouter des IP/CIDR
+                                </a>
+                                <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#add-ip" aria-label="Create new report">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
                                 </a>
@@ -136,7 +162,7 @@
                                                     <path d="M7 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"></path>
                                                     <path d="M17 17v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2"></path>
                                                 </svg>
-                                                Liste des IPs</a>
+                                                Liste des IP/CIDR</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -157,6 +183,7 @@
                                                                 <th>Dst</th>
                                                                 <th>Action</th>
                                                                 <th>Service</th>
+                                                                <th>Statut</th>
                                                                 <th class="w-1"></th>
                                                             </tr>
                                                             </thead>
@@ -178,6 +205,13 @@
                                                                     <td class="text-muted" ><?=$VMFirewallRules['data'][$count]['action']?></td>
                                                                     <td class="text-muted" >
                                                                         <?=$VMFirewallRules['data'][$count]['macro']?>
+                                                                    </td>
+                                                                    <td class="text-muted" >
+                                                                        <?php if($VMFirewallRules['data'][$count]['enable'] == 0) {?>
+                                                                                <span class="badge bg-red">Désactivé</span>
+                                                                            <?php } else {?>
+                                                                                <span class="badge bg-green">Activé</span>
+                                                                            <?php }?>
                                                                     </td>
                                                                     <td>
                                                                         <a href="#">Edit</a>
@@ -229,7 +263,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="ip">
-                                            <h4>Groupe d'IP/CIDR</h4>
+                                            <h4>Liste des IP/CIDR</h4>
                                             <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="table-responsive">
@@ -280,7 +314,7 @@
             <?php require_once('views/includes/footer.php');?>
         </div>
     </div>
-    <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal modal-blur fade" id="create-rules" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <form action="index.php?page=ServiceFirewall&id=<?=$_GET['id']?>" method="POST">
                 <div class="modal-content">
@@ -328,15 +362,28 @@
                                     <label class="form-label required">Source</label>
                                     <select class="form-select" id="src" name="src">
                                         <option value="none" selected>Définissez une source</option>
-                                        <?php
+                                        <optgroup label="Groupe d'IP/CIDR">
+                                            <?php
 
-                                        $count = -1;
-                                        foreach($VMFirewallIPset['data'] as $element) {
-                                            $count++;
+                                            $count = -1;
+                                            foreach($VMFirewallIPset['data'] as $element) {
+                                                $count++;
 
-                                            ?>
-                                            <option value="<?=$VMFirewallIPset['data'][$count]['name']?>"><?=$VMFirewallIPset['data'][$count]['name']?></option>
-                                        <?php }?>
+                                                ?>
+                                                <option value="+<?=$VMFirewallIPset['data'][$count]['name']?>"><?=$VMFirewallIPset['data'][$count]['name']?></option>
+                                            <?php }?>
+                                        </optgroup>
+                                        <optgroup label="IP/CIDR">
+                                            <?php
+
+                                            $count = -1;
+                                            foreach($VMFirewallAliases['data'] as $element) {
+                                                $count++;
+
+                                                ?>
+                                                <option value="<?=$VMFirewallAliases['data'][$count]['name']?>"><?=$VMFirewallAliases['data'][$count]['name']?></option>
+                                            <?php }?>
+                                        </optgroup>
                                     </select>
                                 </div>
                             </div>
@@ -344,16 +391,28 @@
                                 <div class="mb-3">
                                     <label class="form-label required">Destination</label>
                                     <select class="form-select" id="dst" name="dst">
-                                        <option value="none" selected>Définissez une destination</option>
-                                        <?php
+                                        <optgroup label="Groupe d'IP/CIDR">
+                                            <?php
 
-                                        $count = -1;
-                                        foreach($VMFirewallIPset['data'] as $element) {
-                                            $count++;
+                                            $count = -1;
+                                            foreach($VMFirewallIPset['data'] as $element) {
+                                                $count++;
 
-                                            ?>
-                                            <option value="<?=$VMFirewallIPset['data'][$count]['name']?>"><?=$VMFirewallIPset['data'][$count]['name']?></option>
-                                        <?php }?>
+                                                ?>
+                                                <option value="+<?=$VMFirewallIPset['data'][$count]['name']?>"><?=$VMFirewallIPset['data'][$count]['name']?></option>
+                                            <?php }?>
+                                        </optgroup>
+                                        <optgroup label="IP/CIDR">
+                                            <?php
+
+                                            $count = -1;
+                                            foreach($VMFirewallAliases['data'] as $element) {
+                                                $count++;
+
+                                                ?>
+                                                <option value="<?=$VMFirewallAliases['data'][$count]['name']?>"><?=$VMFirewallAliases['data'][$count]['name']?></option>
+                                            <?php }?>
+                                        </optgroup>
                                     </select>
                                 </div>
                             </div>
@@ -370,7 +429,72 @@
                         <a class="btn btn-link link-secondary" data-bs-dismiss="modal">
                             Cancel
                         </a>
-                        <input type="submit" name="submit">
+                        <input type="submit" id="submit" name="submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal modal-blur fade" id="create-ipcidrgroup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <form action="index.php?page=ServiceFirewall&id=<?=$_GET['id']?>" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Créer un groupe d'IP/CIDR</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label class="form-label required">Nom</label>
+                                    <input type="text" id="name" name="name" class="form-control" aria-describedby="text" placeholder="Ex: Bloque-IP-Holycloud">
+                                    <small class="form-hint">Définissez un nom pour cette IP/bloque d'IP.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </a>
+                        <input type="submit" id="submitCreateIPCIDRGroup" name="submitCreateIPCIDRGroup">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal modal-blur fade" id="add-ip" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <form action="index.php?page=ServiceFirewall&id=<?=$_GET['id']?>" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajouter une IP/CIDR.</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label required">Nom</label>
+                                    <input type="text" id="name" name="name" class="form-control" aria-describedby="text" placeholder="Ex: CIDR-Holycloud">
+                                    <small class="form-hint">Définissez un nom pour cette IP/CIDR.</small>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label required">IP / CIDR</label>
+                                    <input type="text" id="ipcidr" name="ipcidr" class="form-control" aria-describedby="text" placeholder="Ex: 192.168.1.0/24">
+                                    <small class="form-hint">Définissez une adresse IP/CIDR.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </a>
+                        <input type="submit" id="submitCreateIPCIDR" name="submitCreateIPCIDR">
                     </div>
                 </div>
             </form>
