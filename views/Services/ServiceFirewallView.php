@@ -391,6 +391,7 @@
                                 <div class="mb-3">
                                     <label class="form-label required">Destination</label>
                                     <select class="form-select" id="dst" name="dst">
+                                        <option value="none" selected>Définissez une destination</option>
                                         <optgroup label="Groupe d'IP/CIDR">
                                             <?php
 

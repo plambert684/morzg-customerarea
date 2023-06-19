@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="UnattendedHostPersistenceState">
+    <option name="openedFilesInfos">
+      <list>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1094" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/views/layouts/services/ServiceLayout.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="6" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/models/services/settings/GetServiceSettingsModel.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1777" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/controllers/services/ServiceController.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="498" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/testPVE.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="18858" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/views/Services/ServiceView.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/models/orders/GetOrderModel.php" />
+        </OpenedFileInfo>
+      </list>
+    </option>
+  </component>
+</project>
