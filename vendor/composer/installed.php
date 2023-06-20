@@ -5,9 +5,9 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'e8fc8b1434dac49a9c36aada149c1e7a14b32f4b',
+        'reference' => '99fc2997934316ae2ba8b083593934dfa0ffd403',
         'name' => '__root__',
-        'dev' => false,
+        'dev' => true,
     ),
     'versions' => array(
         '__root__' => array(
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'e8fc8b1434dac49a9c36aada149c1e7a14b32f4b',
+            'reference' => '99fc2997934316ae2ba8b083593934dfa0ffd403',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
@@ -44,15 +44,6 @@
             'install_path' => __DIR__ . '/../guzzlehttp/psr7',
             'aliases' => array(),
             'reference' => 'b635f279edd83fc275f822a1188157ffea568ff6',
-            'dev_requirement' => false,
-        ),
-        'mrkampf/proxmox-ve' => array(
-            'pretty_version' => '0.4.4',
-            'version' => '0.4.4.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../mrkampf/proxmox-ve',
-            'aliases' => array(),
-            'reference' => '23b7fa2e94fc0d70bae55bd1891821bc4f1d3784',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
@@ -107,6 +98,15 @@
             'install_path' => __DIR__ . '/../ralouphie/getallheaders',
             'aliases' => array(),
             'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+            'dev_requirement' => false,
+        ),
+        'simonbackx/slack-php-webhook' => array(
+            'pretty_version' => '1.0.3',
+            'version' => '1.0.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../simonbackx/slack-php-webhook',
+            'aliases' => array(),
+            'reference' => '7972d875c71b88714c75cf2cab7f7e68dbf4aed9',
             'dev_requirement' => false,
         ),
         'symfony/deprecation-contracts' => array(

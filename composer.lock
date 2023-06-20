@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd62240cf10207f9c8ec554543d591db",
+    "content-hash": "1f30847802654805052cd686a0b733fd",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -335,67 +335,6 @@
             "time": "2023-04-17T16:11:26+00:00"
         },
         {
-            "name": "mrkampf/proxmox-ve",
-            "version": "0.4.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/MrKampf/proxmoxVE.git",
-                "reference": "23b7fa2e94fc0d70bae55bd1891821bc4f1d3784"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MrKampf/proxmoxVE/zipball/23b7fa2e94fc0d70bae55bd1891821bc4f1d3784",
-                "reference": "23b7fa2e94fc0d70bae55bd1891821bc4f1d3784",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "guzzlehttp/guzzle": "*",
-                "lib-curl": "*",
-                "php": "^8.0|7.4|^8.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Proxmox": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "MrKampf",
-                    "email": "hello@mrkampf.com",
-                    "homepage": "https://mrkampf.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "GitCom",
-                    "email": "info@gitcom.cloud",
-                    "homepage": "https://www.gitcom.cloud",
-                    "role": "Developer / Hosting"
-                }
-            ],
-            "description": "Proxmox VE API Client",
-            "keywords": [
-                "KVM",
-                "OpenVZ",
-                "Proxmox",
-                "Virtualization",
-                "api",
-                "php",
-                "php 7",
-                "php 8"
-            ],
-            "support": {
-                "issues": "https://github.com/MrKampf/proxmoxVE/issues",
-                "source": "https://github.com/MrKampf/proxmoxVE"
-            },
-            "time": "2022-10-24T11:05:52+00:00"
-        },
-        {
             "name": "psr/http-client",
             "version": "1.0.2",
             "source": {
@@ -598,6 +537,53 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "simonbackx/slack-php-webhook",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SimonBackx/Slack-PHP-Webhook.git",
+                "reference": "7972d875c71b88714c75cf2cab7f7e68dbf4aed9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SimonBackx/Slack-PHP-Webhook/zipball/7972d875c71b88714c75cf2cab7f7e68dbf4aed9",
+                "reference": "7972d875c71b88714c75cf2cab7f7e68dbf4aed9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "slack.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Backx",
+                    "email": "hi@simonbackx.com",
+                    "homepage": "https://www.simonbackx.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Post messages to your Slack channels with this easy to use library.",
+            "homepage": "https://github.com/SimonBackx/Slack-PHP-Webhook",
+            "keywords": [
+                "channels",
+                "logging",
+                "message",
+                "slack",
+                "webhook"
+            ],
+            "support": {
+                "issues": "https://github.com/SimonBackx/Slack-PHP-Webhook/issues",
+                "source": "https://github.com/SimonBackx/Slack-PHP-Webhook"
+            },
+            "time": "2018-06-12T09:18:00+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

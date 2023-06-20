@@ -1,5 +1,6 @@
 {
     "require": {
-        "zzantares/proxmoxve": "~4.0"
+        "zzantares/proxmoxve": "~4.0",
+        "simonbackx/slack-php-webhook": "^1.0"
     }
 }

@@ -41,6 +41,9 @@
             <!-- Page body -->
             <div class="page-body">
                 <div class="container-xl">
+                    <div class="col-12">
+                        <?php if(isset($_SESSION['message'])) { echo $_SESSION['message']; }?>
+                    </div>
                     <div class="row row-deck row-cards">
                         <div class="col-sm-6 col-lg-3">
                             <div class="dropdown-menu dropdown-menu-demo">

@@ -11,6 +11,7 @@ class ComposerStaticInit4b0a5e319c8f9ce894445c3883ef8868
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '4130286e6f3f01e937222c5a56720011' => __DIR__ . '/..' . '/simonbackx/slack-php-webhook/slack.php',
     );
 
     public static $prefixLengthsPsr4 = array (
