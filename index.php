@@ -11,9 +11,25 @@
     require_once('src/controllers/billing/InvoiceController.php');
     require_once('src/controllers/tickets/TicketsController.php');
 
+    #Cronjob
+    require_once('src/controllers/cronjob/AnalysticsController.php');
+
     #User settings
     require_once('src/controllers/userSettings/PreferencesController.php');
     require_once('src/controllers/userSettings/PersonalInformationsController.php');
+
+    if (isset($_GET['system'])) {
+        if($_GET['system'] == "cronjob") {
+            if(isset($_GET['type'])) {
+                if($_GET['type'] == 'ServiceAnalystics') {
+                    AnalysticsCronjob();
+
+                    echo('OK');
+                    exit;
+                }
+            }
+        }
+    }
 
     //Si action définie, et que...
     if (isset($_GET['action'])) {
@@ -30,16 +46,6 @@
             updateUserPreference($_POST);
         } if ($_GET['action'] === "updatePersonalInformations") {
             updateUserPersonalInformation($_POST);
-        }
-    }
-
-    if (isset($_GET['system'])) {
-        if($_GET['system'] == "cronjob") {
-            if(isset($_GET['id'])) {
-                if($_GET['id'] == '1') {
-                    
-                }
-            }
         }
     }
 

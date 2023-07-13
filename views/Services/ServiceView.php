@@ -129,7 +129,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="font-weight-medium">
-                                                        <span id="cpu"><?=$CPUconsumption?></span>%
+                                                        <span id="cpu"><?=$CPUconsumption?>%</span>
                                                     </div>
                                                     <div class="text-muted">
                                                         Total : <?=$VMInfo['data']['cpus']?> vCores
@@ -155,7 +155,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="font-weight-medium">
-                                                        <span id="netin"><?=$NetworkIN?></span> GB
+                                                        <span id="netin"><?=$NetworkIN?> GB</span>
                                                     </div>
                                                     <div class="text-muted">
                                                         Réseau entrant (total)
@@ -181,13 +181,21 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="font-weight-medium">
-                                                        <span id="netout"><?=$NetworkOUT?></span> GB
+                                                        <span id="netout"><?=$NetworkOUT?> GB</span>
                                                     </div>
                                                     <div class="text-muted">
                                                         Réseau sortant (total)
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Consommation CPU</h3>
+                                            <div id="chart-completion-tasks-3"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -311,29 +319,93 @@
     <script src="./dist/js/demo.min.js?1674944402" defer></script>
 
     <script>
-        const cpuUrl = "http://192.168.2.17/src/services/proxmox/ajax/vm/getCPU.php?vmid=<?=$getServiceSettings->vm_id?>";
-        const netoutUrl = "http://192.168.2.17/src/services/proxmox/ajax/vm/getNetout.php?vmid=<?=$getServiceSettings->vm_id?>";
-        const netinUrl = "http://192.168.2.17/src/services/proxmox/ajax/vm/getNetin.php?vmid=<?=$getServiceSettings->vm_id?>";
+        // @formatter:off
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts && (new ApexCharts(document.getElementById('chart-completion-tasks-3'), {
+                chart: {
+                    type: "area",
+                    fontFamily: 'inherit',
+                    height: 240,
+                    parentHeightOffset: 0,
+                    toolbar: {
+                        show: false,
+                    },
+                    animations: {
+                        enabled: false
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                fill: {
+                    opacity: .16,
+                    type: 'solid'
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                    curve: "smooth",
+                },
+                series: [{
+                    name: "CPU (%)",
+                    data: [
 
-        function fetchData(url) {
-            return fetch(url)
-                .then(response => response.text())
-                .then(data => parseFloat(data));
-        }
+                        <?php
 
-        function updateData() {
-            Promise.all([
-                fetchData(cpuUrl),
-                fetchData(netoutUrl),
-                fetchData(netinUrl)
-            ]).then(([cpu, netout, netin]) => {
-                document.getElementById("cpu").innerHTML = (cpu * 100).toFixed(2);
-                document.getElementById("netout").innerHTML = netout;
-                document.getElementById("netin").innerHTML = netin;
-            });
-        }
+                            foreach ($getServiceCPUAnalystics as $getServiceCPUAnalystic) {
 
-        setInterval(updateData, 2000);
+                                echo json_encode($getServiceCPUAnalystic->value) . ", ";
+                            }
+
+                        ?>]
+                }],
+                tooltip: {
+                    theme: 'dark'
+                },
+                grid: {
+                    padding: {
+                        top: -20,
+                        right: 0,
+                        left: -4,
+                        bottom: -4
+                    },
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: 'date',
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4
+                    },
+                },
+
+                labels: [
+                    <?php
+
+                        foreach ($getServiceCPUAnalystics as $getServiceCPUAnalystic) {
+
+                            echo json_encode($getServiceCPUAnalystic->date) . ", ";
+                        }
+
+                    ?>,
+                ],
+                colors: [tabler.getColor("primary")],
+                legend: {
+                    show: false,
+                },
+            })).render();
+        });
+        // @formatter:on
     </script>
 
 <?php $content = ob_get_clean(); ?>

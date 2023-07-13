@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+    <p></p>
     <script src="./dist/js/demo-theme.min.js?1674944402"></script>
     <div class="page page-center">
         <div class="container container-tight py-4">

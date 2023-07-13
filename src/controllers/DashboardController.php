@@ -42,7 +42,7 @@
         $ProductCategory->connection = new DatabaseConnection();
 
         $getUser = $User->getUser($_SESSION['user_id']);
-        $getServices = $Service->getAll($_SESSION['user_id']);
+        $getServices = $Service->getAllByUser($_SESSION['user_id']);
         $getProductCategories = $ProductCategory->getAll($_SESSION['user_id']);
 
         $totalService = $Service->count($_SESSION['user_id']);

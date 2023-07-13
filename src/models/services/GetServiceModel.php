@@ -23,7 +23,34 @@
 
         }
 
-        public function getAll($userId) {
+        public function getAll() {
+
+            $Services = [];
+
+            $statement = $this->connection->getConnection()->prepare('SELECT * FROM `service`');
+            $statement->execute();
+            while($getService = $statement->fetch()) {
+                $Service = new ServiceRepository();
+                $Service->id = $getService['id'];
+                $Service->order_date = $getService['order_date'];
+                $Service->due_date = $getService['due_date'];
+                if($getService['end_date'] != null) {
+                    $Service->order_date = $getService['end_date'];
+                }
+                $Service->product_id = $getService['product_id'];
+                $Service->order_id = $getService['order_id'];
+                $Service->user_id = $getService['user_id'];
+                $Service->status = $getService['status'];
+
+                $Services[] = $Service;
+
+            }
+
+            return $Services;
+
+        }
+
+        public function getAllByUser($userId) {
 
             $Services = [];
 

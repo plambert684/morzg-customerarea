@@ -27,7 +27,7 @@ function servicesPage() {
     $ProductCategory->connection = new DatabaseConnection();
 
     $getUser = $User->getUser($_SESSION['user_id']);
-    $getServices = $Service->getAll($_SESSION['user_id']);
+    $getServices = $Service->getAllByUser($_SESSION['user_id']);
     $getProductCategories = $ProductCategory->getAll($_SESSION['user_id']);
 
     $lang = $getUser->lang;

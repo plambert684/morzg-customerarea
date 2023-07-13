@@ -4,6 +4,9 @@
     require_once('src/models/users/GetUserModel.php');
     require_once('src/models/services/GetServiceModel.php');
     require_once('src/models/services/settings/GetServiceSettingsModel.php');
+
+    require_once('src/models/services/analystics/GetServiceCPUModel.php');
+
     require_once('src/models/proxmoxServer/GetProxmoxServer.php');
     require_once('src/services/proxmox/connectProxmox.php');
 
@@ -11,6 +14,9 @@
     use Clientarea\Model\Users\Get\UserRepository;
     use Clientarea\Model\Services\Get\ServiceRepository;
     use Clientarea\Model\Services\Settings\Get\ServiceSettingsRepository;
+
+    use Clientarea\Model\Services\Analystics\ServiceCPUAnalysticsRepository;
+
     use Customerarea\Model\ProxmoxServer\Get\ProxmoxServerRepository;
     use Clientarea\Service\Proxmox\Connect;
 
@@ -28,12 +34,16 @@
         $ProxmoxServer = new ProxmoxServerRepository();
         $ProxmoxServer->connection = new DatabaseConnection();
 
+        $ServiceCPUAnalystics = new ServiceCPUAnalysticsRepository();
+        $ServiceCPUAnalystics->connection = new DatabaseConnection();
+
         $ProxmoxConnect = new Connect();
 
         $getUser = $User->getUser($_SESSION['user_id']);
-        $getServices = $Service->getAll($_SESSION['user_id']);
+        $getServices = $Service->getAllByUser($_SESSION['user_id']);
         $getServiceSettings = $ServiceSettings->get($_GET['id']);
         $getProxmoxServer = $ProxmoxServer->get($getServiceSettings->proxmox_server_id);
+        $getServiceCPUAnalystics = $ServiceCPUAnalystics->get($_GET['id']);
         $getProxmoxConnect = $ProxmoxConnect->send($getProxmoxServer->ip_address, $getProxmoxServer->user, $getProxmoxServer->password);
 
         $lang = $getUser->lang;
