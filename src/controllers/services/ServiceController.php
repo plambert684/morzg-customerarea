@@ -4,9 +4,6 @@
     require_once('src/models/users/GetUserModel.php');
     require_once('src/models/services/GetServiceModel.php');
     require_once('src/models/services/settings/GetServiceSettingsModel.php');
-
-    require_once('src/models/services/analystics/GetServiceCPUModel.php');
-
     require_once('src/models/proxmoxServer/GetProxmoxServer.php');
     require_once('src/services/proxmox/connectProxmox.php');
 
@@ -34,16 +31,12 @@
         $ProxmoxServer = new ProxmoxServerRepository();
         $ProxmoxServer->connection = new DatabaseConnection();
 
-        $ServiceCPUAnalystics = new ServiceCPUAnalysticsRepository();
-        $ServiceCPUAnalystics->connection = new DatabaseConnection();
-
         $ProxmoxConnect = new Connect();
 
         $getUser = $User->getUser($_SESSION['user_id']);
         $getServices = $Service->getAllByUser($_SESSION['user_id']);
         $getServiceSettings = $ServiceSettings->get($_GET['id']);
         $getProxmoxServer = $ProxmoxServer->get($getServiceSettings->proxmox_server_id);
-        $getServiceCPUAnalystics = $ServiceCPUAnalystics->get($_GET['id']);
         $getProxmoxConnect = $ProxmoxConnect->send($getProxmoxServer->ip_address, $getProxmoxServer->user, $getProxmoxServer->password);
 
         $lang = $getUser->lang;
@@ -55,6 +48,12 @@
         require_once('src/services/proxmox/connectProxmox.php');
 
         $VMInfo = $getProxmoxConnect->get('/nodes/'. $getProxmoxServer->hostname .'/qemu/'.$getServiceSettings->vm_id.'/status/current');
+
+        $CPUData = [
+            'timeframe' => 'hour',
+            'cf' => 'AVERAGE'
+        ];
+        $VMCPUData = $getProxmoxConnect->get('/nodes/'. $getProxmoxServer->hostname .'/qemu/'.$getServiceSettings->vm_id.'/rrddata', $CPUData);
 
         $NetworkIN = $VMInfo['data']['nics']['tap' . "$getServiceSettings->vm_id" .'i0']['netin'];
         $sizeInBytes = $NetworkIN; // 2 gigabytes en bytes

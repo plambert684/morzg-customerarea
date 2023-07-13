@@ -194,8 +194,16 @@
                                 <div class="col-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h3 class="card-title">Consommation CPU</h3>
+                                            <h3 class="card-title">Consommation CPU (Dernière heure)</h3>
                                             <div id="chart-completion-tasks-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Réseau (Dernière heure)</h3>
+                                            <div id="chart-completion-tasks-10"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -352,12 +360,21 @@
 
                         <?php
 
-                            foreach ($getServiceCPUAnalystics as $getServiceCPUAnalystic) {
+                            foreach ($VMCPUData['data'] as $item) {
+                                if(!isset($item['cpu'])) {
+                                    $result = 0;
+                                } else {
+                                    $result = $item['cpu'];
+                                }
+                                $result = $result * 100;
+                                $result = round($result, 2);
 
-                                echo json_encode($getServiceCPUAnalystic->value) . ", ";
+                                echo $result . ", ";
                             }
 
-                        ?>]
+
+                        ?>
+                        ],
                 }],
                 tooltip: {
                     theme: 'dark'
@@ -392,14 +409,142 @@
                 labels: [
                     <?php
 
-                        foreach ($getServiceCPUAnalystics as $getServiceCPUAnalystic) {
+                        $int = 0;
+                        foreach ($VMCPUData['data'] as $item) {
 
-                            echo json_encode($getServiceCPUAnalystic->date) . ", ";
+                            $int = $int + 2;
+                            $date = date("Hi", $item['time']);
+                            echo $date . ', ';
+
                         }
 
-                    ?>,
+                    ?>
                 ],
                 colors: [tabler.getColor("primary")],
+                legend: {
+                    show: false,
+                },
+            })).render();
+        });
+        // @formatter:on
+    </script>
+
+    <script>
+        // @formatter:off
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts && (new ApexCharts(document.getElementById('chart-completion-tasks-10'), {
+                chart: {
+                    type: "area",
+                    fontFamily: 'inherit',
+                    height: 240,
+                    parentHeightOffset: 0,
+                    toolbar: {
+                        show: false,
+                    },
+                    animations: {
+                        enabled: false
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                fill: {
+                    opacity: .16,
+                    type: 'solid'
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                    curve: "smooth",
+                },
+                series: [{
+                    name: "",
+                    data: [
+
+                        <?php
+
+                        foreach ($VMCPUData['data'] as $item) {
+                            if(!isset($item['netin'])) {
+                                $result = 0;
+                            } else {
+                                $result = $item['netin'];
+                            }
+                            $result = $result / 100;
+                            $result = round($result, 2);
+
+                            echo $result . ", ";
+                        }
+
+
+                        ?>
+
+                    ]
+                },{
+                    name: "",
+                    data: [
+
+                        <?php
+
+                        foreach ($VMCPUData['data'] as $item) {
+                            if(!isset($item['netout'])) {
+                                $result = 0;
+                            } else {
+                                $result = $item['netout'];
+                            }
+                            $result = $result / 100;
+                            $result = round($result, 2);
+
+                            echo $result . ", ";
+                        }
+
+
+                        ?>
+
+                    ]
+                }],
+                tooltip: {
+                    theme: 'dark'
+                },
+                grid: {
+                    padding: {
+                        top: -20,
+                        right: 0,
+                        left: -4,
+                        bottom: -4
+                    },
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: 'date',
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4
+                    },
+                },
+                labels: [
+                    <?php
+
+                        $int = 0;
+                        foreach ($VMCPUData['data'] as $item) {
+
+                            $int = $int + 2;
+                            $date = date("Hi", $item['time']);
+                            echo $date . ', ';
+
+                        }
+
+                    ?>                ],
+                colors: [tabler.getColor("primary"), tabler.getColor("red")],
                 legend: {
                     show: false,
                 },
