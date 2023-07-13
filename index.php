@@ -33,6 +33,16 @@
         }
     }
 
+    if (isset($_GET['system'])) {
+        if($_GET['system'] == "cronjob") {
+            if(isset($_GET['id'])) {
+                if($_GET['id'] == '1') {
+                    
+                }
+            }
+        }
+    }
+
     if(!isset($_SESSION['user_id'])) {
         loginPage();
     } else {

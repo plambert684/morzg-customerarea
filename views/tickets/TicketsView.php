@@ -78,7 +78,6 @@
                         <div class="col-lg-9">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title"><?=$langData["servicesPage"]["all-services"]["title"]?></h3>
                                     <div class="table-responsive">
                                         <table class="table table-vcenter">
                                             <thead>

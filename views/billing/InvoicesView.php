@@ -107,7 +107,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="index.php?page=Invoice&id=<?=$getInvoice->id?>"><?=$langData["servicesPage"]["all-services"]["table"]["content"]["management-button"]?></a>
+                                                                <a href="index.php?page=Invoice&id=<?=$getInvoice->id?>"><?=$langData["invoicesPage"]["all-invoices"]["table"]["management-button"]?></a>
                                                             </td>
                                                         </tr>
                                                     <?php }?>
@@ -140,7 +140,7 @@
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <a href="index.php?page=Invoice&id=<?=$getInvoice->id?>"><?=$langData["servicesPage"]["all-services"]["table"]["content"]["management-button"]?></a>
+                                                            <a href="index.php?page=Invoice&id=<?=$getInvoice->id?>"><?=$langData["invoicesPage"]["all-invoices"]["table"]["management-button"]?></a>
                                                         </td>
                                                     </tr>
                                                 <?php }?>

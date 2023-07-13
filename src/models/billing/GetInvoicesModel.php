@@ -20,7 +20,7 @@ class InvoicesRepository {
             $statement_order = $this->connection->getConnection()->prepare('SELECT * FROM `order` WHERE `invoice_id` = ?');
             $statement_order->execute(array($get_invoice['id']));
             $get_order = $statement_order->fetch();
-
+            
             $invoice = new InvoicesRepository();
             $invoice->id = $get_invoice['id'];
             $invoice->order_date = $get_order['date'];
